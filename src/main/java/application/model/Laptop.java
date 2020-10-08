@@ -1,10 +1,8 @@
 package application.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Set;
+import javax.persistence.*;
+
+
 @Entity
 public class Laptop {
     @Id
@@ -17,9 +15,8 @@ public class Laptop {
     // это серия ноутбука.
     private String series;
     //это модель ноутбука.
-    private String model;
+    private String laptopsModel;
 
-    private Set<Adapter>adaptersList;
 
     public Integer getId() {
         return id;
@@ -53,22 +50,21 @@ public class Laptop {
         this.series = series;
     }
 
-    public String getModel() {
-        return model;
+    public String getLaptopsModel() {
+        return laptopsModel;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public Set<Adapter> getAdaptersList() {
-        return adaptersList;
-    }
-
-    public void setAdaptersList(Set<Adapter> adaptersList) {
-        this.adaptersList = adaptersList;
+    public void setLaptopsModel(String laptopsModel) {
+        this.laptopsModel = laptopsModel;
     }
 
     public Laptop() {
+    }
+
+    public Laptop(String fullName, String vendor, String series, String laptopsModel) {
+        this.fullName = fullName;
+        this.vendor = vendor;
+        this.series = series;
+        this.laptopsModel = laptopsModel;
     }
 }

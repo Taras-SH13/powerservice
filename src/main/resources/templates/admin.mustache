@@ -4,32 +4,33 @@
         width: 200px; /* Ширина элемента в пикселах */
         padding: 10px; /* Поля вокруг текста */
         margin: auto; /* Выравниваем по центру */
-        background: #fc0; /* Цвет фона */
+        background: #ffff; /* Цвет фона */
     }
 </style>
 <body>
 <div class="center">
     <form method="post">
+        <input type="text" name="fullName" placeholder="Назание ноутбука">
         <input type="text" name="vendor" placeholder="Производитель">
         <input type="text" name="series" placeholder="Серия">
-        <input type="text" name="model" placeholder="Модель">
-        <button type="submit">Добавить</button>
+        <input type="text" name="laptopsModel" placeholder="Модель">
+        <button type="submit">Добавить в базу</button>
     </form>
 
 </div>
-
-<div class="center">Список сообщений</div>
+<div class="center">Поиск ноутбука</div>
 <form method="post" action="filter" class="center">
     <input type="text" name="filter">
     <button type="submit">Найти</button>
 </form>
-{{#messages}}
+{{#laptops}}
     <div class="center">
-        <b>{{id}}</b>
-        <span>{{text}}</span>
-        <i>{{tag}}</i>
+        <i>{{id}}</i>
+        <b>{{vendor}}</b>
+        <span>{{series}}</span>
+        <i>{{laptopsModel}}</i>
     </div>
-{{/messages}}
+{{/laptops}}
 </body>
 
 

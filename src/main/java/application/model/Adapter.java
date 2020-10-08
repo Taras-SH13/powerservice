@@ -1,10 +1,7 @@
 package application.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Set;
+import javax.persistence.*;
+
 
 @Entity
 public class Adapter {
@@ -18,7 +15,7 @@ public class Adapter {
     private double amperage;
     private double power;
     private String connector;
-    private Set<Laptop> laptopsList;
+
 
     public Adapter() {
     }
@@ -39,13 +36,6 @@ public class Adapter {
         this.brand = brand;
     }
 
-    public Set<Laptop> getLaptopsList() {
-        return laptopsList;
-    }
-
-    public void setLaptopsList(Set<Laptop> laptopsList) {
-        this.laptopsList = laptopsList;
-    }
 
     public String getAdapterName() {
         return adapterName;
