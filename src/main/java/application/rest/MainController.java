@@ -9,8 +9,11 @@ import java.util.Map;
 
 @Controller
 public class MainController {
+
     @GetMapping("/")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "") String name, Map<String, Object> model) {
+    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "")
+                                       String name, Map<String, Object> model)
+    {
         model.put("name", name);
         return "main";
     }

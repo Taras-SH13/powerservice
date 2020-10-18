@@ -31,12 +31,38 @@ public class AdminController {
         return "admin";
     }
 
+    //        @PostMapping("/filter")
+//    public String filter(@RequestParam String filter, Map<String, Object> model) {
+//        Iterable<Laptop> laptops;
+//
+//        if (filter != null && !filter.isEmpty()) {
+//            laptops = laptopRepos.findByVendor(filter);
+//
+//        } else {
+//            laptops = laptopRepos.findAll();
+//
+//        }
+//        model.put("laptops", laptops);
+//        return "admin";
+//    }
     @PostMapping("/filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<Laptop> laptops;
-        if (filter != null && !filter.isEmpty()) {
-            laptops = laptopRepos.findByVendor(filter);
-        } else laptops = laptopRepos.findAll();
+        Iterable<Laptop> laptops, laptops1, laptops2, laptops3;
+//        laptops = null;
+//        laptops1 = null;
+//        laptops2 = null;
+//        laptops3 = null;
+        laptops1 = laptopRepos.findByVendor(filter);
+        laptops2 = laptopRepos.findBySeries(filter);
+        laptops3 = laptopRepos.findLaptopByLaptopsModel(filter);
+
+        if (laptopRepos.findByVendor(filter).isEmpty()) {
+            laptops=laptops2;
+            if (laptopRepos.findBySeries(filter).isEmpty()) {
+                laptops = laptops3;
+            }
+        } else laptops = laptops1;
+
         model.put("laptops", laptops);
         return "admin";
     }
